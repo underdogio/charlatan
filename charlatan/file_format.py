@@ -129,7 +129,7 @@ def load_file(filename, use_unicode=False):
         # Load the custom YAML tags
         configure_yaml()
         configure_output(use_unicode=use_unicode)
-        content = yaml.unsafe_load(content)
+        content = yaml.load(content, Loader=yaml.UnsafeLoader)
     else:
         raise ValueError("Unsupported filetype: '%s'" % filename)
 
